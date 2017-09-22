@@ -1,0 +1,13 @@
+/*
+ * Styles for Angular Eyedropper Directive
+ *
+ * Eddie Ferrer
+ *
+ * @licence: http://opensource.org/licenses/MIT
+ */
+
+.eyedropper {
+  cursor: url(../img/font-awesome-eyedropper.png) 0 14, auto;
+  border: 1px solid #ddd;
+  margin-top: 1em;
+}

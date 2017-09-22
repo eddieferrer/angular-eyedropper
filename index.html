@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Angular Eyedropper Directive</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/eyedropper.css" />
+        <style>
+            input[color-picker]{
+                margin-bottom: 10px;
+                width: 182px;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+        <script src="js/eyedropper.js"></script>
+        <script>var app = angular.module('app', ['eyedropper']);</script>
+        <script>
+            app.controller('AppCtrl', ['$scope', function ($scope) {
+                $scope.logo = 'img/colored-pencils-felt-tip-pens-color-crayons-53190.jpg'
+            }]);
+        </script>
+
+        <div class="container" ng-app="app" ng-controller="AppCtrl">
+            <h1>Angular Eyedropper Directive</h1>
+            <h4>AngularJS Eyedropper tool directive with no dependencies.</h4>
+            <p>Click on images to select color clicked on, like the Photoshop Eyedropper tool.</p>
+            <h4><b>by Eddie Ferrer</b></h4>
+            <a class="btn btn-primary btn-lg" href="https://github.com/eddieferrer/angular-eyedropper">View on Github</a>
+
+            <div class="row">
+                <hr>
+                <div class="col-md-5">
+                  <eye-dropper img-src="{{logo}}" ng-model="eyedropperColor1"></eye-dropper>
+                </div>
+                <div class="col-md-7">
+                    <p>Basic Usage:</p>
+                    <pre ng-non-bindable>
+&lt;eye-dropper img-src="{{logo}}" ng-model="eyedropperColor1"&gt;&lt;/eye-dropper&gt;
+                     </pre>
+                     Result Color:
+                     <br/>
+                     <strong>{{ eyedropperColor1 }}</strong>
+                     <div style="height: 30px; width: 100px;" ng-style="{'background-color': eyedropperColor1}"></div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <hr>
+                <div class="col-md-5">
+                  <eye-dropper img-src="{{logo}}" ng-model="eyedropperColor2" output-format="rgb"></eye-dropper>
+                </div>
+                <div class="col-md-7">
+                    <p>Change output to RGB:</p>
+                    <pre ng-non-bindable>
+&lt;eye-dropper img-src="{{logo}}" ng-model="eyedropperColor2" output-format="rgb"&gt;&lt;/eye-dropper&gt;
+                     </pre>
+                     Result Color:
+                     <br/>
+                     <strong>{{ eyedropperColor2 }}</strong>
+                     <div style="height: 30px; width: 100px;" ng-style="{'background-color': eyedropperColor2}"></div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <hr>
+                <div class="col-md-5">
+                  <eye-dropper img-src="{{logo}}" ng-model="eyedropperColor3" output-format="hex" height="200" width="200"></eye-dropper>
+                </div>
+                <div class="col-md-7">
+                    <p>Resize Image:</p>
+                    <pre ng-non-bindable>
+&lt;eye-dropper img-src="{{logo}}" ng-model="eyedropperColor3" output-format="hex" height="200" width="200"&gt;&lt;/eye-dropper&gt;
+                     </pre>
+                     Result Color:
+                     <br/>
+                     <strong>{{ eyedropperColor3 }}</strong>
+                     <div style="height: 30px; width: 100px;" ng-style="{'background-color': eyedropperColor3}"></div>
+                </div>
+            </div>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Options</th>
+                                <th>Values (default values in bold)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>output-format</td>
+                                <td>
+                                    <em>Optional</em><br>
+                                    <strong>'hex'</strong>, 'rgb'<br/>
+                                    Format of output color
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>ng-model</td>
+                                <td>
+                                  <em>Required</em><br>
+                                  Angular model for the output color.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>img-src</td>
+                                <td>
+                                  <em>Required</em><br>
+                                  Image source url
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>height</td>
+                                <td>
+                                  <em>Optional</em><br>
+                                  If height is provided, image will be resized to that height. If not original image height is used.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>width</td>
+                                <td>
+                                  <em>Optional</em><br>
+                                  If width is provided, image will be resized to that width. If not original image width is used.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <footer class="footer">&copy; Eddie Ferrer 2017 | <a href="https://github.com/eddieferrer/angular-eyedropper">Angular Eyedropper Directive</a></footer>
+            <br>
+        </div>
+    </body>
+</html>

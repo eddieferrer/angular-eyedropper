@@ -1,0 +1,15 @@
+{
+  "name": "angular-eyedropper-directive",
+  "authors": [
+    "Eddie Ferrer <eferrer@gmail.com>"
+  ],
+  "description": "AngularJS eye dropper directive with no dependencies required",
+  "main": [
+            "js/eyedropper.js",
+            "css/eyedropper.css"
+	],
+  "ignore": [
+    "node_modules"
+  ],
+  "licence": "MIT"
+}
